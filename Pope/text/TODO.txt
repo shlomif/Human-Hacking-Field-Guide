@@ -1,0 +1,23 @@
+* Add the cover image.
+
+* More Unicode punctuation stuff:
+    - more unicode double quotes and single quotes.
+    - em-dash/en-dash.
+
+* Add the dedication:
+
+<<<<<<<<<<
+To Frank R. Wallace,
+    for teaching me about reality.
+
+To Tal, Ori and Doron,
+    for teaching me about imagination.
+
+To Chen,
+    for always believing in me.
+
+To my family,
+    for doubting me sometimes.
+>>>>>>>>>>
+
+* 
