@@ -50,9 +50,19 @@ $(DOCS_FICTION_XML): %.fiction-xml.xml: %.fiction-text.txt
 	perl -MXML::Grammar::Fiction::App::FromProto -e 'run()' -- \
 	-o $@ $<
 
-$(DOCS_FICTION_XHTML): %.fiction-text.xhtml: %.db5.xml
+DOCS_FICTION_XHTML__HEB = $(filter %-hebrew.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
+DOCS_FICTION_XHTML__ENG = $(filter %-english.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
+
+$(DOCS_FICTION_XHTML__HEB): %.fiction-text.xhtml: %.db5.xml
 	xsltproc --stringparam root.filename $@ \
 		--stringparam html.stylesheet "style-heb.css" \
+		--path $(DOCBOOK5_XSL_STYLESHEETS_XHTML_PATH) \
+		-o $@ \
+		$(DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET) $<
+	mv -f $@.html $@
+
+$(DOCS_FICTION_XHTML__ENG): %.fiction-text.xhtml: %.db5.xml
+	xsltproc --stringparam root.filename $@ \
 		--path $(DOCBOOK5_XSL_STYLESHEETS_XHTML_PATH) \
 		-o $@ \
 		$(DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET) $<
@@ -106,3 +116,5 @@ epub_ff: epub
 %.show:
 	@echo "$* = $($*)"
 
+clean:
+	rm -f $(DOCS_FICTION_XHTML) $(DOCS_FICTION_XML) $(DOCS_FICTION_DB5)
