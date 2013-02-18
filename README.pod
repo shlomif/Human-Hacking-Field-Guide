@@ -1,0 +1,28 @@
+=encoding utf8
+
+=head1 The Pope Died on Sunday - Source Repository.
+
+=head2 About
+
+This repository contains the sources for I<The Pope Died on Sunday>,
+an original (and incomplete) novella by Shlomi Fish
+(L<http://www.shlomifish.org/>), that describes a hectic week in the life
+of an American female graphics artist.
+
+=head2 Links
+
+=over 4
+
+=item * Homepage
+
+L<http://www.shlomifish.org/humour/Pope/>
+
+=back
+
+=head2 Building
+
+Go to C<Pope/text/> and type C<make> .
+
+=head2 Ideas document / plot summary
+
+None yet.
