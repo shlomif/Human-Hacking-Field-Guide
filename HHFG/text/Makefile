@@ -6,16 +6,16 @@ FILES = Makefile $(DOCS_FICTION_XHTML) \
 
 # The-Enemy-English.xhtml \
 
-STORY = The-Pope-Died-on-Sunday
-HEB_STORY = $(STORY)-hebrew
-ENG_STORY = $(STORY)-english
+STORY = human-hacking-field-guide
+HEB_STORY = $(STORY)--hebrew
+ENG_STORY = $(STORY)--english
 
 ENG_EPUB = $(ENG_STORY).epub
 
 STORY_LANGUAGE_BASES = $(HEB_STORY) $(ENG_STORY)
 
-DOCS_FICTION_TEXT = $(patsubst %,%.fiction-text.txt,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_XML = $(patsubst %,%.fiction-xml.xml,$(STORY_LANGUAGE_BASES))
+DOCS_FICTION_TEXT = $(patsubst %,%.fiction-text.txt,$(HEB_STORY))
+DOCS_FICTION_XML = $(patsubst %,%.fiction-xml.xml,$(HEB_STORY))
 DOCS_FICTION_DB5 = $(patsubst %,%.db5.xml,$(STORY_LANGUAGE_BASES))
 DOCS_FICTION_XHTML = $(patsubst %,%.fiction-text.xhtml,$(STORY_LANGUAGE_BASES))
 DOCS_FICTION_FO = $(patsubst %,%.fiction-text.fo,$(STORY_LANGUAGE_BASES))
@@ -42,7 +42,7 @@ odt: $(DOCS_FICTION_ODT)
 upload:
 	rsync -v --progress -a $(FILES) $${HOMEPAGE_SSH_PATH}/$(THE_ENEMY_DEST)/
 
-$(DOCS_FICTION_DB5): %.db5.xml: %.fiction-xml.xml
+$(filter %--hebrew.db5.xml,$(DOCS_FICTION_DB5)): %.db5.xml: %.fiction-xml.xml
 	perl -MXML::Grammar::Fiction::App::ToDocBook -e 'run()' -- \
 		-o $@ $<
 
