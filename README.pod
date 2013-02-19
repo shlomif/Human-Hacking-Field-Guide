@@ -1,13 +1,13 @@
 =encoding utf8
 
-=head1 The Pope Died on Sunday - Source Repository.
+=head1 The Human Hacking Field Guide - Source Repository.
 
 =head2 About
 
-This repository contains the sources for I<The Pope Died on Sunday>,
-an original (and incomplete) novella by Shlomi Fish
-(L<http://www.shlomifish.org/>), that describes a hectic week in the life
-of an American female graphics artist.
+This repository contains the sources for I<The Human Hacking Field Guide>,
+an original (and complete) novella by Shlomi Fish
+(L<http://www.shlomifish.org/>), about teenage open source developers in
+the vicinity of 2005, Los Angeles.
 
 =head2 Links
 
@@ -15,14 +15,24 @@ of an American female graphics artist.
 
 =item * Homepage
 
-L<http://www.shlomifish.org/humour/Pope/>
+L<http://www.shlomifish.org/humour/human-hacking/>
 
 =back
 
 =head2 Building
 
-Go to C<Pope/text/> and type C<make> .
+Go to C<HHFG/text/> and type C<make> .
 
-=head2 Ideas document / plot summary
+=head1 Sources
 
-None yet.
+C<human-hacking-field-guide--english.db5.xml> is the source for the story
+in English in DocBook 5/XML format.
+
+C<human-hacking-field-guide--hebrew.fiction-text.txt> is the source for the
+Hebrew version, in XML-Grammar-Fiction format
+( L<http://www.shlomifish.org/open-source/projects/XML-Grammar/Fiction/> ).
+
+=head1 LICENSE
+
+See L<LICENSE.pod> for licensing.
+
