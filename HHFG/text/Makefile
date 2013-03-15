@@ -49,6 +49,7 @@ $(filter %--hebrew.db5.xml,$(DOCS_FICTION_DB5)): %.db5.xml: %.fiction-xml.xml
 $(DOCS_FICTION_XML): %.fiction-xml.xml: %.fiction-text.txt
 	perl -MXML::Grammar::Fiction::App::FromProto -e 'run()' -- \
 	-o $@ $<
+	perl -i -lape 's/\s+$$//' $@
 
 DOCS_FICTION_XHTML__HEB = $(filter %-hebrew.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
 DOCS_FICTION_XHTML__ENG = $(filter %-english.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
@@ -60,6 +61,7 @@ $(DOCS_FICTION_XHTML__HEB): %.fiction-text.xhtml: %.db5.xml
 		-o $@ \
 		$(DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET) $<
 	mv -f $@.html $@
+	perl -i -lape 's/\s+$$//' $@
 
 $(DOCS_FICTION_XHTML__ENG): %.fiction-text.xhtml: %.db5.xml
 	xsltproc --stringparam root.filename $@ \
@@ -67,6 +69,7 @@ $(DOCS_FICTION_XHTML__ENG): %.fiction-text.xhtml: %.db5.xml
 		-o $@ \
 		$(DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET) $<
 	mv -f $@.html $@
+	perl -i -lape 's/\s+$$//' $@
 
 $(DOCS_FICTION_FO): %.fiction-text.fo : %.db5.xml
 	xsltproc --stringparam root.filename $@ \

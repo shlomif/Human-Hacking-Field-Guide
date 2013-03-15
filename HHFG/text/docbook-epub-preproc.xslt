@@ -1,5 +1,5 @@
 <xsl:stylesheet version = '1.0'
-    xmlns="http://docbook.org/ns/docbook" 
+    xmlns="http://docbook.org/ns/docbook"
     xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
     xmlns:xlink="http://www.w3.org/1999/xlink"
      >
@@ -27,16 +27,16 @@
 <xsl:template name="nc_legal_notice">
     <para>
         This document is copyrighted by Shlomi Fish
-        under the 
+        under the
         <link xlink:href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
-            Commons Attribution 
-            Noncommercial Share-Alike (Unported) License (CC-by-nc-sa) version 
-            3.0</link> 
+            Commons Attribution
+            Noncommercial Share-Alike (Unported) License (CC-by-nc-sa) version
+            3.0</link>
         (or at your option, any greater version).
     </para>
     <para>
         Note that the original text of the story and its DocBook source is
-        under "CC-by-sa", but the author relicensed the final EPUB to 
+        under "CC-by-sa", but the author relicensed the final EPUB to
         "CC-by-nc-sa" upon publishing.
     </para>
 </xsl:template>
