@@ -27,6 +27,8 @@ ENG_DB_PROCESSED = $(ENG_STORY).db5.xml
 ENG_DB_XSLT = docbook-epub-preproc.xslt
 ENG_DB_SOURCE = $(ENG_STORY).db5.xml
 
+ENG_EPUB_XSLT = docbook-epub-preproc.xslt
+
 DOCBOOK5_XSL_STYLESHEETS_PATH := $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
 
 HOMEPAGE := $(HOME)/Docs/homepage/homepage/trunk
@@ -54,8 +56,12 @@ $(DOCS_FICTION_XML): %.fiction-xml.xml: %.fiction-text.txt
 DOCS_FICTION_XHTML__HEB = $(filter %-hebrew.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
 DOCS_FICTION_XHTML__ENG = $(filter %-english.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
 
+TO_XHTML_XSLT_COMMON_PARAMS = \
+	--stringparam "generate.revhistory.link" 1
+
 $(DOCS_FICTION_XHTML__HEB): %.fiction-text.xhtml: %.db5.xml
 	xsltproc --stringparam root.filename $@ \
+		$(TO_XHTML_XSLT_COMMON_PARAMS) \
 		--stringparam html.stylesheet "style-heb.css" \
 		--path $(DOCBOOK5_XSL_STYLESHEETS_XHTML_PATH) \
 		-o $@ \
@@ -65,6 +71,7 @@ $(DOCS_FICTION_XHTML__HEB): %.fiction-text.xhtml: %.db5.xml
 
 $(DOCS_FICTION_XHTML__ENG): %.fiction-text.xhtml: %.db5.xml
 	xsltproc --stringparam root.filename $@ \
+		$(TO_XHTML_XSLT_COMMON_PARAMS) \
 		--path $(DOCBOOK5_XSL_STYLESHEETS_XHTML_PATH) \
 		-o $@ \
 		$(DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET) $<
@@ -97,9 +104,9 @@ XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-snapshot/
 
 EPUB_SCRIPT = $(XSL_SNAPSHOT_HOME)/epub/bin/dbtoepub
 
-$(ENG_EPUB) : $(ENG_DB_PROCESSED)
+$(ENG_EPUB) : $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT)
 	$(JING) $<
-	ruby $(EPUB_SCRIPT) -o $@ $<
+	ruby -s $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $<
 
 $(DOCS_FICTION_HTML_FOR_OOO): %.for-openoffice.html: %.xhtml
 	cat $< | perl -lne 's{(</title>)}{$${1}<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />}; print unless m{\A<\?xml}' > $@
