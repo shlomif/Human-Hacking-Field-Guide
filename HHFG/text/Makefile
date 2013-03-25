@@ -123,6 +123,9 @@ epub: $(ENG_EPUB)
 epub_ff: epub
 	firefox $(ENG_EPUB)
 
+epub_ok: epub
+	okular $(ENG_EPUB)
+
 %.show:
 	@echo "$* = $($*)"
 

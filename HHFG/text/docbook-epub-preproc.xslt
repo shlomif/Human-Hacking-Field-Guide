@@ -6,8 +6,8 @@
 
 <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"
     />
-<xsl:param name="generate.revhistory.link">1</xsl:param>
 
+<!--
 <xsl:template match="*">
     <xsl:choose>
         <xsl:when test="local-name() = 'legalnotice'">
@@ -41,8 +41,9 @@
         "CC-by-nc-sa" upon publishing.
     </para>
 </xsl:template>
+-->
 
 <!-- Get rid of the revhistory element -->
-<xsl:template match="revhistory" />
+<xsl:template match="revhistory" mode="titlepage.mode"/>
 
 </xsl:stylesheet>
