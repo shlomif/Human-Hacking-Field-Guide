@@ -56,8 +56,8 @@ $(DOCS_FICTION_XML): %.fiction-xml.xml: %.fiction-text.txt
 DOCS_FICTION_XHTML__HEB = $(filter %-hebrew.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
 DOCS_FICTION_XHTML__ENG = $(filter %-english.fiction-text.xhtml,$(DOCS_FICTION_XHTML))
 
-TO_XHTML_XSLT_COMMON_PARAMS = \
-	--stringparam "generate.revhistory.link" 1
+# --stringparam "generate.revhistory.link" 1
+TO_XHTML_XSLT_COMMON_PARAMS =
 
 $(DOCS_FICTION_XHTML__HEB): %.fiction-text.xhtml: %.db5.xml
 	xsltproc --stringparam root.filename $@ \
@@ -99,14 +99,14 @@ DOCBOOK_RNG = ./rng/docbook.rng
 
 JING = jing $(DOCBOOK_RNG)
 
-# XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
-XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-snapshot/
+XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
+# XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-snapshot/
 
 EPUB_SCRIPT = $(XSL_SNAPSHOT_HOME)/epub/bin/dbtoepub
 
 $(ENG_EPUB) : $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT)
 	$(JING) $<
-	ruby -s $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $<
+	ruby -s $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $(ENG_DB_PROCESSED)
 
 $(DOCS_FICTION_HTML_FOR_OOO): %.for-openoffice.html: %.xhtml
 	cat $< | perl -lne 's{(</title>)}{$${1}<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />}; print unless m{\A<\?xml}' > $@

@@ -1,13 +1,15 @@
 <xsl:stylesheet version = '1.0'
     xmlns="http://docbook.org/ns/docbook"
+    xmlns:d="http://docbook.org/ns/docbook"
     xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
     xmlns:xlink="http://www.w3.org/1999/xlink"
-     >
+    >
 
-<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"
+    <xsl:import href="epub/docbook.xsl" />
+
+<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="no"
     />
 
-<!--
 <xsl:template match="*">
     <xsl:choose>
         <xsl:when test="local-name() = 'legalnotice'">
@@ -41,9 +43,9 @@
         "CC-by-nc-sa" upon publishing.
     </para>
 </xsl:template>
--->
 
 <!-- Get rid of the revhistory element -->
-<xsl:template match="revhistory" mode="titlepage.mode"/>
+<xsl:template match="d:revhistory" mode="titlepage.mode" />
+<xsl:template match="d:revhistory" />
 
 </xsl:stylesheet>
