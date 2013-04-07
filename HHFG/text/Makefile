@@ -131,3 +131,19 @@ epub_ok: epub
 
 clean:
 	rm -f $(DOCS_FICTION_XHTML) $(DOCS_FICTION_XML) $(DOCS_FICTION_DB5)
+
+# EPUB generation reproducing bug.
+
+EP = epub_repr
+EPUB_GEN_BUG_ARC = $(EP).zip
+EPUB_GEN_BUG_SCRIPT = epub-build.bash
+
+epub_gen_bug: $(EPUB_GEN_BUG_ARC)
+
+EPUB_GEN_BUG_FILES = $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT) $(EPUB_GEN_BUG_SCRIPT)
+
+$(EPUB_GEN_BUG_ARC): $(EPUB_GEN_BUG_FILES)
+	mkdir $(EP)
+	cp $(EPUB_GEN_BUG_FILES) $(EP)/
+	zip -r $(EPUB_GEN_BUG_ARC) $(EP)
+	rm -fr ./$(EP)
