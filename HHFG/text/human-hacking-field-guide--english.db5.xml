@@ -25,6 +25,20 @@
                 (or at your option a greater version).
             </para>
         </legalnotice>
+        <abstract>
+            <para>
+                Jennifer is a trendy and popular high school senior who is
+                living and studying in the vicinity of Los Angeles. Her best
+                friend, Taylor, convinces her to try to become a developer of
+                open source software. He puts her under the tutorship of a
+                different friend of his, the female open source contributor
+                Eve, who prefers to be called “Erisa”, and who is a
+                self-conscious and rebelling punk, with whom Jennifer finds it
+                hard to deal. Jennifer remains determined to learn how to
+                become an open source developer from Erisa, but there are some
+                surprises along the road.
+            </para>
+        </abstract>
         <revhistory xml:id="hhfg-revhistory">
             <revision>
                 <revnumber>1134</revnumber>
@@ -366,6 +380,14 @@
                     Start correcting the English phrasing to be more somewhat
                     more mature. Thanks to ssta (from Freenode) and Joel
                     (from the E-mail).
+                </revremark>
+            </revision>
+            <revision>
+                <revnumber>5759</revnumber>
+                <date>2013-04-10</date>
+                <authorinitials>shlomif</authorinitials>
+                <revremark>
+                    Add the abstract.
                 </revremark>
             </revision>
         </revhistory>
