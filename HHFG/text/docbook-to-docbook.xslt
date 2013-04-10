@@ -45,7 +45,4 @@
     </para>
 </xsl:template>
 
-<!-- Get rid of the revhistory element -->
-<xsl:template match="d:revhistory" mode="titlepage.mode" />
-
 </xsl:stylesheet>
