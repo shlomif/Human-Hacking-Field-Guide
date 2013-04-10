@@ -106,7 +106,7 @@ EPUB_SCRIPT = $(XSL_SNAPSHOT_HOME)/epub/bin/dbtoepub
 
 $(ENG_EPUB) : $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT)
 	$(JING) $<
-	ruby -s $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $(ENG_DB_PROCESSED)
+	ruby $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $(ENG_DB_PROCESSED)
 
 $(DOCS_FICTION_HTML_FOR_OOO): %.for-openoffice.html: %.xhtml
 	cat $< | perl -lne 's{(</title>)}{$${1}<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />}; print unless m{\A<\?xml}' > $@
@@ -147,3 +147,6 @@ $(EPUB_GEN_BUG_ARC): $(EPUB_GEN_BUG_FILES)
 	cp $(EPUB_GEN_BUG_FILES) $(EP)/
 	zip -r $(EPUB_GEN_BUG_ARC) $(EP)
 	rm -fr ./$(EP)
+
+epub_gen_bug_upload: epub_gen_bug
+	rsync -v --progress -a $(EPUB_GEN_BUG_ARC) $${__HOMEPAGE_REMOTE_PATH}/temp-db5-epub/
