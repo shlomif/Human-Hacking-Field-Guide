@@ -6,7 +6,7 @@ FILES = Makefile $(DOCS_FICTION_XHTML) \
 
 # The-Enemy-English.xhtml \
 
-STORY = human-hacking-field-guide
+STORY = human-hacking-field-guide-v2
 HEB_STORY = $(STORY)--hebrew
 ENG_STORY = $(STORY)--english
 
