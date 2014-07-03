@@ -130,7 +130,7 @@ epub_ok: epub
 	@echo "$* = $($*)"
 
 clean:
-	rm -f $(DOCS_FICTION_XHTML) $(DOCS_FICTION_XML) $(DOCS_FICTION_DB5)
+	rm -f $(DOCS_FICTION_XHTML) $(DOCS_FICTION_XML) $(HEB_STORY).db5.xml $(ENG_EPUB)
 
 # EPUB generation reproducing bug.
 
