@@ -6,14 +6,6 @@ FICTION_TEXTS = $(HEB_STORY)
 
 include $(SCREENPLAY_COMMON_INC_DIR)/fictions_common.mak
 
-DOCBOOK5_XSL_STYLESHEETS_PATH := $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
-
-HOMEPAGE := $(HOME)/Docs/homepage/homepage/trunk
-DOCBOOK5_XSL_STYLESHEETS_XHTML_PATH := $(DOCBOOK5_XSL_STYLESHEETS_PATH)/xhtml
-DOCBOOK5_XSL_STYLESHEETS_FO_PATH := $(DOCBOOK5_XSL_STYLESHEETS_PATH)/fo
-DOCBOOK5_XSL_CUSTOM_XSLT_STYLESHEET := $(HOMEPAGE)/lib/sgml/shlomif-docbook/xsl-5-stylesheets/shlomif-essays-5-xhtml-onechunk.xsl
-DOCBOOK5_XSL_CUSTOM_FO_XSLT_STYLESHEET := $(HOMEPAGE)/lib/sgml/shlomif-docbook/xsl-5-stylesheets/shlomif-essays-5-fo.xsl
-
 all: $(DOCS_FICTION_XHTML) $(ENG_EPUB) $(ENG_HTML_FOR_OOO)
 
 odt: $(DOCS_FICTION_ODT)
