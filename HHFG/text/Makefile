@@ -10,14 +10,6 @@ $(filter %--hebrew.db5.xml,$(DOCS_FICTION_DB5)): %.db5.xml: %.fiction-xml.xml
 	perl -MXML::Grammar::Fiction::App::ToDocBook -e 'run()' -- \
 		-o $@ $<
 
-$(DOCS_FICTION_RTF): %.rtf: %.fo
-	fop -fo $< -rtf $@
-
-rtf: $(DOCS_FICTION_RTF)
-
-$(DOCS_FICTION_ODT): $(DOCS_FICTION_DB5)
-	docbook2odf $< -o $@
-
 # DOCBOOK_RNG = http://www.docbook.org/xml/5.0/rng/docbook.rng
 
 DOCBOOK_RNG = ./rng/docbook.rng
