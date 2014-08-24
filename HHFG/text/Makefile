@@ -1,29 +1,11 @@
-FILES = Makefile $(DOCS_FICTION_XHTML) \
-		$(DOCS_FICTION_TEXT) $(DOCS_FICTION_DB5) \
-		$(ENG_DB_PROCESSED) $(ENG_DB_SOURCE) \
-		style.css style-heb.css \
-		README.html
-
-# The-Enemy-English.xhtml \
-
 STORY = human-hacking-field-guide-v2
 HEB_STORY = $(STORY)--hebrew
 ENG_STORY = $(STORY)--english
 
-ENG_EPUB = $(ENG_STORY).epub
+FICTION_TEXTS = $(HEB_STORY)
 
-STORY_LANGUAGE_BASES = $(HEB_STORY) $(ENG_STORY)
+include $(SCREENPLAY_COMMON_INC_DIR)/fictions_common.mak
 
-DOCS_FICTION_TEXT = $(patsubst %,%.fiction-text.txt,$(HEB_STORY))
-DOCS_FICTION_XML = $(patsubst %,%.fiction-xml.xml,$(HEB_STORY))
-DOCS_FICTION_DB5 = $(patsubst %,%.db5.xml,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_XHTML = $(patsubst %,%.fiction-text.xhtml,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_FO = $(patsubst %,%.fiction-text.fo,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_RTF = $(patsubst %,%.fiction-text.rtf,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_ODT = $(patsubst %,%.odt,$(STORY_LANGUAGE_BASES))
-DOCS_FICTION_HTML_FOR_OOO = $(patsubst %,%.for-openoffice.html,$(STORY_LANGUAGE_BASES))
-
-ENG_DB_PROCESSED = $(ENG_STORY).db5.xml
 ENG_DB_XSLT = docbook-epub-preproc.xslt
 ENG_DB_SOURCE = $(ENG_STORY).db5.xml
 
