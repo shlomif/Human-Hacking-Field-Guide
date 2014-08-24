@@ -6,11 +6,6 @@ FICTION_TEXTS = $(HEB_STORY)
 
 include $(SCREENPLAY_COMMON_INC_DIR)/fictions_common.mak
 
-ENG_DB_XSLT = docbook-epub-preproc.xslt
-ENG_DB_SOURCE = $(ENG_STORY).db5.xml
-
-ENG_EPUB_XSLT = docbook-epub-preproc.xslt
-
 DOCBOOK5_XSL_STYLESHEETS_PATH := $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
 
 HOMEPAGE := $(HOME)/Docs/homepage/homepage/trunk
