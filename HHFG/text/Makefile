@@ -10,17 +10,6 @@ $(filter %--hebrew.db5.xml,$(DOCS_FICTION_DB5)): %.db5.xml: %.fiction-xml.xml
 	perl -MXML::Grammar::Fiction::App::ToDocBook -e 'run()' -- \
 		-o $@ $<
 
-# DOCBOOK_RNG = http://www.docbook.org/xml/5.0/rng/docbook.rng
-
-DOCBOOK_RNG = ./rng/docbook.rng
-
-JING = jing $(DOCBOOK_RNG)
-
-XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-ns-snapshot
-# XSL_SNAPSHOT_HOME = $(HOME)/Download/unpack/file/docbook/docbook-xsl-snapshot/
-
-EPUB_SCRIPT = $(XSL_SNAPSHOT_HOME)/epub/bin/dbtoepub
-
 $(ENG_EPUB) : $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT)
 	$(JING) $<
 	ruby $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $(ENG_DB_PROCESSED)
