@@ -7,7 +7,7 @@
 This repository contains the sources for I<The Human Hacking Field Guide>,
 an original (and complete) novella by Shlomi Fish
 (L<http://www.shlomifish.org/>), about teenage open source developers in
-the vicinity of 2005, Los Angeles.
+the vicinity of Los Angeles in 2005.
 
 =head2 Links
 
@@ -35,4 +35,6 @@ Hebrew version, in XML-Grammar-Fiction format
 =head1 LICENSE
 
 See L<LICENSE.pod> for licensing.
+
+=cut
 
