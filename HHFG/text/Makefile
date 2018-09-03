@@ -11,5 +11,4 @@ $(filter %--hebrew.db5.xml,$(DOCS_FICTION_DB5)): %.db5.xml: %.fiction-xml.xml
 		-o $@ $<
 
 $(ENG_EPUB) : $(ENG_DB_PROCESSED) $(ENG_EPUB_XSLT)
-	$(JING) $<
 	ruby $(EPUB_SCRIPT) -s $(ENG_EPUB_XSLT) -o $@ $(ENG_DB_PROCESSED)
