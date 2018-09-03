@@ -38,11 +38,11 @@ then
     export SCREENPLAY_COMMON_INC_DIR="$PWD/screenplays-common"
     cd HHFG/text/
     m()
-    \{
+    {
         make DBTOEPUB="/usr/bin/ruby $(which dbtoepub)" \
             DOCBOOK5_XSL_STYLESHEETS_PATH=/usr/share/xml/docbook/stylesheet/docbook-xsl-ns \
         "$@"
-    \}
+    }
     m
     m test
 fi
