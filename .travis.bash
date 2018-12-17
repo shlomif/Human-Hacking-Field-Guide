@@ -45,7 +45,7 @@ then
     mkdir -p "$h"
     git clone https://github.com/shlomif/shlomi-fish-homepage "$h/trunk"
     sudo -H `which python3` -m pip install cookiecutter
-    ( cd "$h/trunk && perl bin/my-cookiecutter.pl )
+    ( cd "$h/trunk" && perl bin/my-cookiecutter.pl )
 
 elif test "$cmd" = "build"
 then
